@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── DARK THEME (default) ── */
+:root,
+[data-theme="dark"] {
+  --bg: #0b0c10;
+  --bg2: #111318;
+  --bg3: #181a20;
+  --bg-rgb: 11, 12, 16;
+  --gold: #c9a252;
+  --gold2: #e8c97a;
+  --gold-dim: #7a5e2a;
+  --text: #e8e4dc;
+  --text2: #c0bbb2;
+  --text3: #7a756e;
+  --border: rgba(201, 162, 82, 0.15);
+  --border2: rgba(201, 162, 82, 0.08);
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  --bg: #f5f2ec;
+  --bg2: #eeeae0;
+  --bg3: #e5e0d5;
+  --bg-rgb: 245, 242, 236;
+  --gold: #96720e;
+  --gold2: #7a5c0a;
+  --gold-dim: #c9a252;
+  --text: #1a1814;
+  --text2: #3d3a33;
+  --text3: #7a756e;
+  --border: rgba(120, 90, 20, 0.25);
+  --border2: rgba(120, 90, 20, 0.12);
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block px-8 py-3 font-medium text-xs tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5;
+    background: var(--gold);
+    color: var(--bg);
+    font-family: var(--font-dm-mono), monospace;
+  }
+  .btn-outline {
+    @apply inline-block px-8 py-3 text-xs tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5;
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-family: var(--font-dm-mono), monospace;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    background: rgba(201, 162, 82, 0.08);
+  }
+  .sec-tag {
+    font-family: var(--font-dm-mono), monospace;
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .sec-tag::before {
+    content: "";
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+  }
+  .sec-title {
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .sec-title em { color: var(--gold); font-style: italic; }
+
+  .form-input, .form-textarea {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    color: var(--text);
+    padding: 0.85rem 1rem;
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text3); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { opacity: 0; animation: fadeUp 0.7s forwards; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  /* Show hamburger, hide desktop links */
+  .hamburger { display: flex !important; }
+  .nav-desktop { display: none !important; }
+
+  /* Sections padding */
+  section { padding: 5rem 1.5rem !important; }
+
+  /* About grid → single column */
+  #about .about-grid,
+  #contact .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
+  /* Hero */
+  #hero { padding: 8rem 1.5rem 4rem !important; }
+
+  /* Nav padding */
+  nav { padding: 1.1rem 1.5rem !important; }
+
+  /* Projects → single column */
+  #projects [style*="gridTemplateColumns: 1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About photo grid */
+  #about [style*="340px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hero stats */
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+
+  /* Footer */
+  footer { flex-direction: column !important; gap: 0.5rem; text-align: center; padding: 1.5rem !important; }
+}
+
+@media (max-width: 480px) {
+  nav { padding: 1rem 1.2rem !important; }
+  section { padding: 4rem 1.2rem !important; }
+}
