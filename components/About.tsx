@@ -71,7 +71,7 @@ export default function About() {
                     </p>
                     <p style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: "0.62rem", color: "var(--text3)", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.6 }}>
                       Add your photo as<br />
-                      <span style={{ color: "var(--gold)" }}>public/profile.jpg</span>
+                      <span style={{ color: "var(--gold)" }}>public/profile.png</span>
                     </p>
                   </div>
                 </div>
