@@ -50,7 +50,7 @@ export default function About() {
             <div style={{ position: "relative", width: "100%", height: "100%", background: "var(--bg2)", border: "1px solid var(--border)", overflow: "hidden", zIndex: 1 }}>
               {!imgError ? (
                 <Image
-                  src="/profile.jpg"
+                  src="/profile.png"
                   alt="Tesfahun Aschalew Tsegaye"
                   fill
                   style={{ objectFit: "cover", objectPosition: "center top" }}

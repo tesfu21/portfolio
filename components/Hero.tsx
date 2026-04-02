@@ -128,7 +128,7 @@ export default function Hero() {
         }}
       >
         {[
-          { num: "2+", label: "Years at GBE" },
+          { num: "3+", label: "Years at GBE" },
           { num: "3", label: "Roles Held" },
           { num: "6+", label: "Tech Skills" },
         ].map((stat) => (
