@@ -18,7 +18,7 @@ export default function About() {
       <div style={{ marginBottom: "4rem" }}>
         <p className="sec-tag">About Me</p>
         <h2 className="sec-title">
-          Developer with a <em>Banking</em> Mindset
+         Full-Stack <em>Developer</em>
         </h2>
       </div>
 

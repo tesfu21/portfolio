@@ -21,7 +21,18 @@ const projects: Project[] = [
     isPublic: false,
     category: "Internal Tool · GBE",
   },
-  // ← Add more projects here when ready
+ //  THIS IS SECOND PROJECT:
+  {
+    title: "Personal Portfolio Website",
+    problem: "No public presence to showcase skills and experience",
+    description:
+      "Designed and built this portfolio website from scratch to showcase my experience, skills, and projects. Features a dark prestige theme with gold accents, light/dark mode toggle, responsive mobile layout, animated sections, a working contact form via Nodemailer, and PostgreSQL database via Supabase. Deployed on Vercel with CI/CD from GitHub.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Nodemailer", "PostgreSQL", "Supabase", "Vercel"],
+    isPublic: true,
+    demoUrl: "https://tesfahun-dev-portfolio.vercel.app",
+    githubUrl: "https://github.com/tesfu21/portfolio",
+    category: "Personal Project",
+  },
 ];
 
 export default function Projects() {
