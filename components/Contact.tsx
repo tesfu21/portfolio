@@ -63,17 +63,17 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: "7rem 4rem", maxWidth: "1100px", margin: "0 auto", borderTop: "1px solid var(--border2)" }}>
-      <div style={{ marginBottom: "4rem" }}>
+    <section id="contact" className="section section-inner">
+      <div className="section-head">
         <p className="sec-tag">Contact</p>
         <h2 className="sec-title">Let&apos;s <em>Connect</em></h2>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "5rem", alignItems: "start" }}>
+      <div className="contact-grid">
 
         {/* ── Left: Info ── */}
-        <div>
-          <p style={{ color: "var(--text2)", fontSize: "1rem", lineHeight: 1.8, marginBottom: "2rem" }}>
+        <div className="contact-left">
+          <p>
             Whether you have a project idea, a job opportunity, or just want to
             connect — my inbox is always open.
           </p>
@@ -84,29 +84,12 @@ export default function Contact() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.85rem",
-                color: "var(--text2)",
-                textDecoration: "none",
-                fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: "0.72rem",
-                letterSpacing: "0.06em",
-                padding: "0.85rem 0",
-                borderBottom: "1px solid var(--border2)",
-                transition: "color 0.3s",
-              }}
+              className="contact-link"
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--gold)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text2)")}
             >
               {/* Icon box */}
-              <span style={{
-                width: 32, height: 32, flexShrink: 0,
-                border: "1px solid var(--border2)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: "var(--gold)",
-              }}>
+              <span className="contact-icon-box">
                 <Icon />
               </span>
               {label}
@@ -114,7 +97,7 @@ export default function Contact() {
           ))}
 
           {/* Social icon buttons */}
-          <div style={{ display: "flex", gap: "0.75rem", marginTop: "2rem" }}>
+          <div className="social-row">
             {[
               { href: "https://github.com/tesfu21", Icon: GitHubIcon, label: "GitHub" },
               { href: "https://www.linkedin.com/in/tesfahun-aschalew-7b411a223", Icon: LinkedInIcon, label: "LinkedIn" },
@@ -125,13 +108,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                style={{
-                  width: 40, height: 40,
-                  border: "1px solid var(--border)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "var(--text2)", textDecoration: "none",
-                  transition: "all 0.3s",
-                }}
+                className="social-btn"
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = "var(--gold)";
                   (e.currentTarget as HTMLElement).style.color = "var(--gold)";
@@ -150,12 +127,12 @@ export default function Contact() {
         </div>
 
         {/* ── Right: Form ── */}
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <form onSubmit={handleSubmit} className="contact-form">
           {[
             { name: "name", label: "Your Name", type: "text", placeholder: "John Doe" },
             { name: "email", label: "Email Address", type: "email", placeholder: "john@example.com" },
           ].map((field) => (
-            <div key={field.name} style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+            <div key={field.name} className="form-row">
               <label style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: "0.62rem", color: "var(--text3)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                 {field.label}
               </label>
@@ -171,7 +148,7 @@ export default function Contact() {
             </div>
           ))}
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+          <div className="form-row">
             <label style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: "0.62rem", color: "var(--text3)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
               Message
             </label>
@@ -182,7 +159,7 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="Tell me about your project or opportunity..."
               required
-              style={{ height: 130, resize: "none" }}
+              
             />
           </div>
 
@@ -196,12 +173,12 @@ export default function Contact() {
           </button>
 
           {status === "success" && (
-            <p style={{ color: "#4ade80", fontFamily: "var(--font-dm-mono), monospace", fontSize: "0.72rem" }}>
+            <p className="contact-feedback" style={{ color: "#4ade80" }}>
               ✓ Message sent! I&apos;ll get back to you soon.
             </p>
           )}
           {status === "error" && (
-            <p style={{ color: "#f87171", fontFamily: "var(--font-dm-mono), monospace", fontSize: "0.72rem" }}>
+            <p className="contact-feedback" style={{ color: "#f87171" }}>
               Something went wrong. Please try emailing me directly.
             </p>
           )}
